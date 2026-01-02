@@ -21,13 +21,16 @@ export const HeroSection = () => {
               Mostafa{' '}
               <span className="gradient-text">Kermani Nia</span>
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-6 opacity-0 animate-fade-up" style={{ animationDelay: '0.3s' }}>
+            <p className="text-xl md:text-2xl text-muted-foreground mb-2 opacity-0 animate-fade-up" style={{ animationDelay: '0.3s' }}>
               Computer Engineering Student
             </p>
+            <p className="text-primary font-semibold mb-6 opacity-0 animate-fade-up" style={{ animationDelay: '0.35s' }}>
+              Ranked 1st · GPA: 19.76/20 · University of Tehran
+            </p>
             <p className="text-muted-foreground max-w-lg mx-auto lg:mx-0 mb-8 leading-relaxed opacity-0 animate-fade-up" style={{ animationDelay: '0.4s' }}>
-              Passionate about exploring new technologies and developing software solutions. 
-              Currently studying at the University of Tehran, focusing on Artificial Intelligence 
-              and Machine Learning.
+              Passionate about AI, Machine Learning, and Distributed Systems. 
+              Co-founder of ONTON with 900K+ users. Chief TA for Probability & Statistics.
+              Building the future of technology.
             </p>
 
             {/* CTA Buttons */}
@@ -84,7 +87,10 @@ export const HeroSection = () => {
                 />
               </div>
               <div className="absolute -bottom-2 -right-2 w-20 h-20 bg-accent rounded-full flex items-center justify-center shadow-lg animate-float">
-                <span className="text-2xl">🎓</span>
+                <span className="text-2xl">🏆</span>
+              </div>
+              <div className="absolute -top-2 -left-2 w-16 h-16 bg-primary rounded-full flex items-center justify-center shadow-lg animate-float" style={{ animationDelay: '0.5s' }}>
+                <span className="text-xl">🎓</span>
               </div>
             </div>
           </div>

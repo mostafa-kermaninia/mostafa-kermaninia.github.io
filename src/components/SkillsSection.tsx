@@ -1,115 +1,116 @@
-import { useEffect, useState, useRef } from 'react';
+import { Code, Database, Globe, Brain, Cpu, BookOpen } from 'lucide-react';
 
-const technicalSkills = [
-  { name: 'Python', level: 95 },
-  { name: 'C/C++', level: 95 },
-  { name: 'Jupyter Notebook', level: 96 },
-  { name: 'Matlab', level: 90 },
-  { name: 'Data Science Tools', level: 90 },
-  { name: 'System Verilog', level: 85 },
-  { name: 'LaTeX', level: 75 },
-  { name: 'HTML/CSS/JS', level: 70 },
+const skillCategories = [
+  {
+    title: "Programming Languages",
+    icon: Code,
+    skills: ["Python", "C/C++", "Java", "JavaScript", "SQL", "MATLAB", "Verilog"],
+    color: "from-blue-500 to-cyan-500",
+  },
+  {
+    title: "Distributed Systems & Databases",
+    icon: Database,
+    skills: ["HBase", "ClickHouse", "PostgreSQL", "MongoDB", "ElasticSearch", "Memcached", "PuppyGraph"],
+    color: "from-emerald-500 to-green-500",
+  },
+  {
+    title: "Web Development & DevOps",
+    icon: Globe,
+    skills: ["Next.js", "HTML/CSS", "Supabase", "Prometheus", "Git", "Trello", "LaTeX"],
+    color: "from-violet-500 to-purple-500",
+  },
+  {
+    title: "Machine Learning",
+    icon: Brain,
+    skills: ["TensorFlow", "scikit-learn", "Pandas", "NumPy", "Matplotlib", "Deep Learning", "Computer Vision"],
+    color: "from-rose-500 to-pink-500",
+  },
 ];
 
-const softSkills = [
-  { name: 'Teamwork & Leadership', level: 97 },
-  { name: 'Teaching & Communication', level: 90 },
+const researchInterests = [
+  {
+    title: "Scalable & Dependable Distributed Systems",
+    description: "Interested in the architectural challenges of building robust, high-throughput decentralized platforms. My hands-on experience scaling Web3 infrastructure (ONTON) motivates my interest in optimizing reliability and performance in large-scale networks.",
+    icon: Cpu,
+  },
+  {
+    title: "Machine Learning in Dynamic Environments",
+    description: "Leveraging a strong statistical foundation to apply techniques like Reinforcement Learning and Deep Learning to complex, interactive systems—from optimizing game agents to developing real-time anti-cheat security mechanisms.",
+    icon: Brain,
+  },
+  {
+    title: "Computational Social Science & HCI",
+    description: "Utilizing large-scale data analysis to understand user behavior within social networks and gaming platforms. Interested in designing data-driven incentive mechanisms and improving user interaction in complex sociotechnical systems.",
+    icon: BookOpen,
+  },
 ];
-
-const SkillBar = ({ name, level, delay }: { name: string; level: number; delay: number }) => {
-  const [width, setWidth] = useState(0);
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          setTimeout(() => setWidth(level), delay);
-        }
-      },
-      { threshold: 0.5 }
-    );
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => observer.disconnect();
-  }, [level, delay]);
-
-  return (
-    <div ref={ref} className="mb-6">
-      <div className="flex justify-between mb-2">
-        <span className="font-medium text-foreground">{name}</span>
-        <span className="text-primary font-semibold">{level}%</span>
-      </div>
-      <div className="skill-bar">
-        <div 
-          className="skill-bar-fill" 
-          style={{ width: `${width}%` }}
-        />
-      </div>
-    </div>
-  );
-};
 
 export const SkillsSection = () => {
   return (
-    <section id="skills" className="py-20 bg-secondary/30">
+    <section id="skills" className="py-20">
       <div className="container mx-auto px-4 md:px-8">
         <div className="text-center mb-12">
-          <h2 className="section-heading">Skills</h2>
+          <h2 className="section-heading">Skills & Expertise</h2>
           <p className="section-subheading mx-auto">
-            Technical expertise and professional competencies
+            Technical proficiencies and research interests
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {/* Technical Skills */}
-          <div className="glass-card p-8">
-            <h3 className="text-xl font-semibold mb-6 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-primary" />
-              Technical Skills
-            </h3>
-            {technicalSkills.map((skill, index) => (
-              <SkillBar 
-                key={skill.name} 
-                name={skill.name} 
-                level={skill.level} 
-                delay={index * 100}
-              />
-            ))}
-          </div>
-
-          {/* Soft Skills */}
-          <div className="glass-card p-8">
-            <h3 className="text-xl font-semibold mb-6 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-accent" />
-              Soft Skills
-            </h3>
-            {softSkills.map((skill, index) => (
-              <SkillBar 
-                key={skill.name} 
-                name={skill.name} 
-                level={skill.level} 
-                delay={index * 100}
-              />
-            ))}
-
-            {/* Additional Info */}
-            <div className="mt-8 p-6 rounded-xl bg-primary/5 border border-primary/10">
-              <h4 className="font-semibold text-foreground mb-3">Areas of Interest</h4>
+        {/* Skills Grid */}
+        <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-16">
+          {skillCategories.map((category, index) => (
+            <div 
+              key={index}
+              className="glass-card p-6 group hover:shadow-card-hover transition-all duration-500"
+            >
+              <div className="flex items-center gap-3 mb-5">
+                <div className={`p-3 rounded-xl bg-gradient-to-br ${category.color} shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                  <category.icon size={22} className="text-white" />
+                </div>
+                <h3 className="text-lg font-semibold text-foreground">
+                  {category.title}
+                </h3>
+              </div>
+              
               <div className="flex flex-wrap gap-2">
-                {['Artificial Intelligence', 'Machine Learning', 'Data Science', 'Computer Vision', 'Quantum Computing'].map((interest) => (
+                {category.skills.map((skill) => (
                   <span 
-                    key={interest}
-                    className="px-3 py-1 text-sm rounded-full bg-primary/10 text-primary font-medium"
+                    key={skill}
+                    className="px-3 py-1.5 text-sm rounded-full bg-secondary/80 text-foreground font-medium hover:bg-primary/20 hover:text-primary transition-colors cursor-default"
                   >
-                    {interest}
+                    {skill}
                   </span>
                 ))}
               </div>
             </div>
+          ))}
+        </div>
+
+        {/* Research Interests */}
+        <div className="max-w-5xl mx-auto">
+          <h3 className="text-2xl font-bold text-center mb-8">
+            <span className="gradient-text">Research Interests</span>
+          </h3>
+          
+          <div className="grid md:grid-cols-3 gap-6">
+            {researchInterests.map((interest, index) => (
+              <div 
+                key={index}
+                className="glass-card p-6 hover:shadow-card-hover transition-all duration-500 group"
+              >
+                <div className="p-3 rounded-xl bg-primary/10 inline-block mb-4 group-hover:bg-primary/20 transition-colors">
+                  <interest.icon size={24} className="text-primary" />
+                </div>
+                
+                <h4 className="font-semibold text-foreground mb-3 leading-tight">
+                  {interest.title}
+                </h4>
+                
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {interest.description}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
