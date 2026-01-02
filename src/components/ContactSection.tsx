@@ -17,13 +17,13 @@ const socialLinks = [
   { 
     name: 'Telegram', 
     icon: Send, 
-    url: 'https://t.me/',
+    url: 'https://t.me/mosiyo_kerry',
     color: 'hover:bg-[#0088CC] hover:text-[#fff]'
   },
   { 
     name: 'Instagram', 
     icon: Instagram, 
-    url: 'https://instagram.com/',
+    url: 'https://www.instagram.com/mosiyo_kerry/',
     color: 'hover:bg-gradient-to-r hover:from-[#833AB4] hover:via-[#FD1D1D] hover:to-[#F77737] hover:text-[#fff]'
   },
 ];
