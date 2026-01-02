@@ -13,9 +13,8 @@ export const Footer = () => {
             </span>
           </div>
           
-          <p className="text-sm text-muted-foreground flex items-center gap-1">
-            © {currentYear} Mostafa Kermani Nia. Built with{' '}
-            <Heart size={14} className="text-destructive fill-destructive" /> 
+          <p className="text-sm text-muted-foreground">
+            © {currentYear} Mostafa Kermani Nia. All rights reserved.
           </p>
 
           <div className="flex gap-6">
