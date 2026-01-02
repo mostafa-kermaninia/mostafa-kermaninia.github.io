@@ -5,9 +5,11 @@ import { Button } from './ui/button';
 const navItems = [
   { label: 'About', href: '#about' },
   { label: 'Education', href: '#education' },
+  { label: 'Honors', href: '#honors' },
   { label: 'Skills', href: '#skills' },
+  { label: 'Teaching', href: '#teaching' },
   { label: 'Experience', href: '#experience' },
-  { label: 'Portfolio', href: '#portfolio' },
+  { label: 'Projects', href: '#portfolio' },
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -38,7 +40,7 @@ export const Navbar = () => {
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-6">
             {navItems.map((item) => (
               <a
                 key={item.label}
@@ -57,7 +59,7 @@ export const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-foreground"
+            className="lg:hidden text-foreground"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -66,8 +68,8 @@ export const Navbar = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-md border-b border-border shadow-lg animate-fade-in">
-            <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
+          <div className="lg:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-md border-b border-border shadow-lg animate-fade-in">
+            <div className="container mx-auto px-4 py-4 flex flex-col gap-3">
               {navItems.map((item) => (
                 <a
                   key={item.label}
@@ -78,7 +80,7 @@ export const Navbar = () => {
                   {item.label}
                 </a>
               ))}
-              <Button variant="hero" size="sm" className="w-full" asChild>
+              <Button variant="hero" size="sm" className="w-full mt-2" asChild>
                 <a href="https://mostafa-kermaninia.github.io/assets/download/CV.pdf" target="_blank" rel="noopener noreferrer">
                   Download CV
                 </a>
