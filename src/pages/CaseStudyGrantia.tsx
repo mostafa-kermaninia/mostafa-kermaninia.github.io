@@ -242,6 +242,44 @@ const CaseStudyGrantia = () => {
             </div>
           </section>
 
+          {/* Links Section */}
+          <section className="mb-16">
+            <h2 className="font-heading text-2xl font-bold text-foreground mb-6">Project Links</h2>
+            <div className="grid md:grid-cols-2 gap-4">
+              <a 
+                href="https://grantia.lovable.app" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="glass-card p-5 flex items-center gap-4 hover:border-teal-500/50 transition-colors group"
+              >
+                <div className="p-3 rounded-xl bg-teal-500/20">
+                  <Server size={24} className="text-teal-400" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-foreground group-hover:text-teal-400 transition-colors">Grantia Platform</h4>
+                  <p className="text-sm text-muted-foreground">Live Admin Dashboard</p>
+                </div>
+                <Search size={18} className="text-muted-foreground ml-auto" />
+              </a>
+              
+              <a 
+                href="https://docs.google.com/document/d/1_zLczmv7tE0fmes2LQpZpPadjz-lG2jGwJxHO4_sMPU/edit?usp=sharing" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="glass-card p-5 flex items-center gap-4 hover:border-teal-500/50 transition-colors group"
+              >
+                <div className="p-3 rounded-xl bg-teal-500/20">
+                  <Layers size={24} className="text-teal-400" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-foreground group-hover:text-teal-400 transition-colors">Original Case Study Document</h4>
+                  <p className="text-sm text-muted-foreground">View the complete documentation</p>
+                </div>
+                <Search size={18} className="text-muted-foreground ml-auto" />
+              </a>
+            </div>
+          </section>
+
           {/* Back Button */}
           <div className="flex justify-center">
             <Button variant="heroOutline" size="lg" asChild>

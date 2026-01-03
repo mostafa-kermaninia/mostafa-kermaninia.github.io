@@ -203,6 +203,60 @@ const CaseStudyMomis = () => {
             </div>
           </section>
 
+          {/* Links Section */}
+          <section className="mb-16">
+            <h2 className="font-heading text-2xl font-bold text-foreground mb-6">Project Links</h2>
+            <div className="grid md:grid-cols-2 gap-4">
+              <a 
+                href="https://t.me/MomisStudioBot" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="glass-card p-5 flex items-center gap-4 hover:border-purple-500/50 transition-colors group"
+              >
+                <div className="p-3 rounded-xl bg-purple-500/20">
+                  <Gamepad2 size={24} className="text-purple-400" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-foreground group-hover:text-purple-400 transition-colors">Momis Gaming Bot</h4>
+                  <p className="text-sm text-muted-foreground">@MomisStudioBot on Telegram</p>
+                </div>
+                <ExternalLink size={18} className="text-muted-foreground ml-auto" />
+              </a>
+              
+              <a 
+                href="https://t.me/MomisStudio" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="glass-card p-5 flex items-center gap-4 hover:border-purple-500/50 transition-colors group"
+              >
+                <div className="p-3 rounded-xl bg-purple-500/20">
+                  <Users size={24} className="text-purple-400" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-foreground group-hover:text-purple-400 transition-colors">Momis Community</h4>
+                  <p className="text-sm text-muted-foreground">@MomisStudio Channel</p>
+                </div>
+                <ExternalLink size={18} className="text-muted-foreground ml-auto" />
+              </a>
+              
+              <a 
+                href="https://docs.google.com/document/d/1CdWxroKmk4acmlPbX4xgzNGJBiGk6GdOch63SP-XEeY/edit?usp=sharing" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="glass-card p-5 flex items-center gap-4 hover:border-purple-500/50 transition-colors group md:col-span-2"
+              >
+                <div className="p-3 rounded-xl bg-purple-500/20">
+                  <ExternalLink size={24} className="text-purple-400" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-foreground group-hover:text-purple-400 transition-colors">Original Case Study Document</h4>
+                  <p className="text-sm text-muted-foreground">View the complete documentation on Google Docs</p>
+                </div>
+                <ExternalLink size={18} className="text-muted-foreground ml-auto" />
+              </a>
+            </div>
+          </section>
+
           {/* Back Button */}
           <div className="flex justify-center">
             <Button variant="heroOutline" size="lg" asChild>
