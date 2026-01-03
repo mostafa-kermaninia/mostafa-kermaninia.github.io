@@ -219,7 +219,7 @@ const CaseStudyMajara = () => {
             <h2 className="font-heading text-2xl font-bold text-foreground mb-6">Project Links</h2>
             <div className="grid md:grid-cols-2 gap-4">
               <a 
-                href="https://t.me/MajaraBot" 
+                href="https://t.me/MajaraAppBot" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="glass-card p-5 flex items-center gap-4 hover:border-amber-500/50 transition-colors group"
@@ -229,29 +229,13 @@ const CaseStudyMajara = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground group-hover:text-amber-400 transition-colors">Majara Bot</h4>
-                  <p className="text-sm text-muted-foreground">@MajaraBot on Telegram</p>
+                  <p className="text-sm text-muted-foreground">@MajaraAppBot on Telegram</p>
                 </div>
                 <Globe size={18} className="text-muted-foreground ml-auto" />
               </a>
               
               <a 
-                href="https://t.me/MajaraSE" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="glass-card p-5 flex items-center gap-4 hover:border-amber-500/50 transition-colors group"
-              >
-                <div className="p-3 rounded-xl bg-amber-500/20">
-                  <Users size={24} className="text-amber-400" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-foreground group-hover:text-amber-400 transition-colors">Majara Channel (EN)</h4>
-                  <p className="text-sm text-muted-foreground">@MajaraSE English Channel</p>
-                </div>
-                <Globe size={18} className="text-muted-foreground ml-auto" />
-              </a>
-              
-              <a 
-                href="https://t.me/MajaraFA" 
+                href="https://t.me/MajaraApp" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="glass-card p-5 flex items-center gap-4 hover:border-amber-500/50 transition-colors group"
@@ -261,7 +245,23 @@ const CaseStudyMajara = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground group-hover:text-amber-400 transition-colors">Majara Channel (FA)</h4>
-                  <p className="text-sm text-muted-foreground">@MajaraFA Persian Channel</p>
+                  <p className="text-sm text-muted-foreground">@MajaraApp Persian Channel</p>
+                </div>
+                <Globe size={18} className="text-muted-foreground ml-auto" />
+              </a>
+              
+              <a 
+                href="https://t.me/MajaraAppEn" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="glass-card p-5 flex items-center gap-4 hover:border-amber-500/50 transition-colors group"
+              >
+                <div className="p-3 rounded-xl bg-amber-500/20">
+                  <Users size={24} className="text-amber-400" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-foreground group-hover:text-amber-400 transition-colors">Majara Channel (EN)</h4>
+                  <p className="text-sm text-muted-foreground">@MajaraAppEn English Channel</p>
                 </div>
                 <Globe size={18} className="text-muted-foreground ml-auto" />
               </a>
