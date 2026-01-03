@@ -4,18 +4,16 @@
     <meta charset="utf-8">
     <title>Mostafa Kermaninia</title>
     <script type="text/javascript">
-      // این اسکریپت آدرس فعلی را گرفته و به عنوان پارامتر به index.html می‌فرستد
       var pathSegmentsToKeep = 0;
       var l = window.location;
       l.replace(
         l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?p=/' +
+        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' + // تغییر این بخش
         l.pathname.split('/').slice(1 + pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
         (l.search ? '&q=' + l.search.slice(1).replace(/&/g, '~and~') : '') +
         l.hash
       );
     </script>
   </head>
-  <body>
-  </body>
+  <body></body>
 </html>
