@@ -1,6 +1,20 @@
 <!doctype html>
 <html lang="en">
   <head>
+
+<script type="text/javascript">
+  (function(l) {
+    if (l.search[1] === '/' ) {
+      var decoded = l.search.slice(1).split('&').map(function(s) { 
+        return s.replace(/~and~/g, '&')
+      }).join('?');
+      window.history.replaceState(null, null,
+          l.pathname.slice(0, -1) + decoded + l.hash
+      );
+    }
+  }(window.location))
+</script>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
@@ -23,18 +37,6 @@
     <meta property="twitter:title" content="Mostafa Kermani Nia | Computer Engineering" />
     <meta property="twitter:description" content="Top-ranked student at University of Tehran & Co-founder of ONTON. Specializing in AI and Distributed Systems." />
     <meta property="twitter:image" content="https://mostafa-kermaninia.github.io/src/assets/profile.jpg" />
-<script type="text/javascript">
-  (function(l) {
-    if (l.search[1] === '/' ) {
-      var decoded = l.search.slice(1).split('&').map(function(s) { 
-        return s.replace(/~and~/g, '&')
-      }).join('?');
-      window.history.replaceState(null, null,
-          l.pathname.slice(0, -1) + decoded + l.hash
-      );
-    }
-  }(window.location))
-</script>
       <script type="module" crossorigin src="/assets/index-B1m1sNLw.js"></script>
       <link rel="stylesheet" crossorigin href="/assets/index-C84N7iXw.css">
     </head>
