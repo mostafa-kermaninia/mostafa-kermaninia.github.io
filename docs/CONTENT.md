@@ -33,3 +33,7 @@ Source material includes the author-supplied CV, LinkedIn profile export, projec
 Give it a unique URL-safe `slug`, categories (`ai`, `data`, `product`), problem statement, contribution, engineering decisions, and outcome. Add a public repository URL only when it resolves to the specific project. `scripts/build.mjs` generates its route and sitemap entry automatically.
 
 Replace the main CV at `public/assets/download/CV.pdf`. Older academic download paths remain available for link compatibility, but the visible CV actions all point to the primary file.
+
+## Current transcript
+
+The Research & teaching page links to `public/assets/download/transcript-2026-10.pdf`. It is a three-page landscape PDF assembled from the three screenshots supplied by Mostafa on 15 October 2026, not a digitally issued university PDF. Course names, grades and academic information are preserved as screenshot images. Student number, national ID and date of birth are burned out of the public image copy before PDF embedding. The original uploads remain unchanged and are not published in the repository. The legacy `transcript.pdf` path contains the same current public copy. Use a new dated filename for future replacements so existing browser caches do not serve an outdated transcript.
