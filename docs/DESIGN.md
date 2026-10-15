@@ -1,6 +1,6 @@
 # Design system
 
-The portfolio uses an editorial monochrome direction: large, regular-weight typography, a grayscale original portrait, generous spacing, quiet rules, and contrasting project artwork.
+The portfolio uses an editorial monochrome direction: large, regular-weight typography, a background-free monochrome portrait, generous spacing, quiet rules, and contrasting project artwork.
 
 | Token | Value | Use |
 |---|---|---|
@@ -14,7 +14,7 @@ The portfolio uses an editorial monochrome direction: large, regular-weight typo
 
 The layout scales from a single-column mobile reading order to paired desktop project panels. Root spacing uses fluid gutters, bounded content width, and explicit image dimensions. Case-study copy has a narrower reading measure and an optional desktop contents list.
 
-Project covers are original CSS illustrations, labeled “Concept illustration.” They are not screenshots or measured product results. The portrait remains the author’s original image, displayed in grayscale through CSS.
+Project covers are original CSS illustrations, labeled “Concept illustration.” They are not screenshots or measured product results. The portrait is an identity-preserving studio-style edit of the author’s supplied photograph, with a transparent alpha channel. The locally hosted WebP uses `object-fit: contain` so hair and shoulders remain visible on different screen sizes. The original portrait remains available as a legacy asset. See [PORTRAIT.md](PORTRAIT.md) for the source and edit specification.
 
 Essential content is rendered into HTML. Native links and `details` elements provide navigation and disclosure without JavaScript. The mobile navigation remains visible without JavaScript; enhancement adds a collapsible menu. Filters and clipboard feedback are optional enhancements. Focus indicators, skip navigation, accessible button state, Escape behavior, and reduced-motion handling are included.
 
