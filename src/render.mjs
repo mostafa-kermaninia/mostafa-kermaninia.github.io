@@ -1,3 +1,5 @@
+import { createHash } from "node:crypto";
+import { readFileSync } from "node:fs";
 import {
   site,
   projects,
@@ -7,6 +9,13 @@ import {
   earlierTeaching,
   capabilities,
 } from "./content.mjs";
+
+// New CSS receives a new URL so cached Pages assets cannot crop a new portrait
+// using an older layout. The renderer runs only at build time.
+export const stylesheetPath = `/assets/site-${createHash("sha256")
+  .update(readFileSync(new URL("./styles.css", import.meta.url)))
+  .digest("hex")
+  .slice(0, 12)}.css`;
 
 export const escape = (value) =>
   String(value).replace(
@@ -120,7 +129,7 @@ export function document({
     ],
   };
   return `<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#f8f8f8"><title>${e(fullTitle)}</title><meta name="description" content="${e(description)}"><link rel="canonical" href="${site.url}${path}">${noindex ? '<meta name="robots" content="noindex">' : ""}<meta property="og:type" content="website"><meta property="og:title" content="${e(fullTitle)}"><meta property="og:description" content="${e(description)}"><meta property="og:url" content="${site.url}${path}"><meta property="og:image" content="${site.url}/images/social-card.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Mostafa Kermani Nia — Intelligence, engineered."><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="preload" href="/fonts/Manrope-variable.ttf" as="font" type="font/ttf" crossorigin><link rel="stylesheet" href="/assets/site.css"><script src="/assets/site.js" defer></script><script type="application/ld+json">${JSON.stringify(structured).replace(/</g, "\\u003c")}</script></head><body>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#f8f8f8"><title>${e(fullTitle)}</title><meta name="description" content="${e(description)}"><link rel="canonical" href="${site.url}${path}">${noindex ? '<meta name="robots" content="noindex">' : ""}<meta property="og:type" content="website"><meta property="og:title" content="${e(fullTitle)}"><meta property="og:description" content="${e(description)}"><meta property="og:url" content="${site.url}${path}"><meta property="og:image" content="${site.url}/images/social-card.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Mostafa Kermani Nia — Intelligence, engineered."><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="preload" href="/fonts/Manrope-variable.ttf" as="font" type="font/ttf" crossorigin><link rel="stylesheet" href="${stylesheetPath}"><script src="/assets/site.js" defer></script><script type="application/ld+json">${JSON.stringify(structured).replace(/</g, "\\u003c")}</script></head><body>
 <a href="#main" class="skip-link">Skip to content</a><header class="site-header"><div class="wrap header-inner"><a class="brand" href="/" aria-label="Mostafa Kermani Nia, home">MK.</a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-navigation">Menu <span aria-hidden="true">+</span></button><nav id="main-navigation" class="main-navigation" aria-label="Main navigation">${nav}<a href="${site.cv}" download="Mostafa-Kermani-Nia-CV.pdf">CV <span aria-hidden="true">↓</span></a><a class="contact-link" href="#contact">Let’s talk ${arrow}</a></nav></div></header>
 <main id="main">${body}</main>
 <footer id="contact" class="site-footer"><div class="wrap"><p class="eyebrow">Have a meaningful problem?</p><h2>Let’s build<br>something useful.</h2><p class="footer-intro">For AI engineering roles, research collaboration, or product conversations, get in touch.</p><div class="email-row"><a class="email-link" href="mailto:${site.email}">${site.email} ${arrow}</a><button class="copy-email" type="button" data-copy-email="${site.email}" aria-label="Copy email address">Copy email</button><span class="copy-status" data-copy-status role="status"></span></div><div class="footer-bottom"><p>© 2026 ${site.name}</p><div class="social"><a href="${site.github}" ${ext}>GitHub ${arrow}</a><a href="${site.linkedin}" ${ext}>LinkedIn ${arrow}</a><a href="${site.cv}" download="Mostafa-Kermani-Nia-CV.pdf">CV ↓</a></div><p>Applied AI · Data systems · Software</p></div></div></footer></body></html>`;

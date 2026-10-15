@@ -10,6 +10,7 @@ import {
   about,
   notFound,
   escape,
+  stylesheetPath,
 } from "../src/render.mjs";
 
 const root = resolve(import.meta.dirname, "..");
@@ -19,7 +20,7 @@ await mkdir(output, { recursive: true });
 await cp(resolve(root, "public"), output, { recursive: true });
 await mkdir(resolve(output, "assets"), { recursive: true });
 for (const [source, target] of [
-  ["styles.css", "site.css"],
+  ["styles.css", stylesheetPath.split("/").at(-1)],
   ["site.js", "site.js"],
 ]) {
   await cp(resolve(root, "src", source), resolve(output, "assets", target));
