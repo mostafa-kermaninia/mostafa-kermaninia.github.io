@@ -1,79 +1,106 @@
-# Mostafa's Digital Canvas 🚀
+# Mostafa Kermani Nia — Personal Portfolio
 
-### Professional Portfolio & Academic Showcase
+A personal portfolio bringing together selected work in **applied AI, retrieval, data systems, and product engineering**, alongside research and teaching at the University of Tehran.
 
-Welcome to my professional digital workspace. This project serves as a comprehensive portfolio showcasing my academic journey at the **University of Tehran**, my entrepreneurial ventures, and my expertise in **AI, Machine Learning, and Distributed Systems**.
+[Visit the website](https://mostafa-kermaninia.github.io/) · [Download my CV](https://mostafa-kermaninia.github.io/assets/download/CV.pdf) · [LinkedIn](https://www.linkedin.com/in/mostafakermaninia/) · [فارسی](README.fa.md)
 
-## 👤 About Me
+![Mostafa Kermani Nia — Intelligence, engineered.](public/images/social-card.png)
 
-I am a top-ranked Computer Engineering student (Ranked 1st, GPA: 19.76/20) and the co-founder of **ONTON**, a community activation platform serving over **900K+ users**. This portfolio highlights my work as a researcher, developer, and Chief Teaching Assistant.
+## Explore
 
-## 🛠️ Tech Stack
+- **Selected work:** VideoMap, RamonAI Visual Search, Grantia, ORBIT, Commerce Experience, Majara, and MOMIS.
+- **Research:** ongoing work in Byzantine-robust federated learning and vision-language models.
+- **Teaching:** machine-learning academic leadership and project-based Speech & Audio AI instruction.
+- **Background:** industry contributions, role timelines, education, and contact details.
 
-This high-performance web application is built with modern technologies:
+Each case study describes the problem, my contribution, engineering decisions, and the outcome in context. Industry-project cover illustrations are labeled; project scope is distinguished from measured outcomes.
 
-* **Framework:** React 18 with Vite for lightning-fast bundling.
-* **Language:** TypeScript for type-safe development.
-* **Styling:** Tailwind CSS & shadcn/ui for a premium, responsive UI.
-* **Data Management:** TanStack Query (React Query) for efficient state handling.
-* **Animations:** Lucide React icons and custom Tailwind-animate transitions.
+## Architecture
 
-## 🚀 Getting Started
+This is a small, **dependency-free static site**, built with Node.js, semantic HTML, CSS, and progressive JavaScript enhancement. Every page is generated as complete HTML: navigation, project content, native disclosure controls, and downloads work without client-side rendering.
 
-### Prerequisites
+The original React/Vite implementation is retained in Git history. A static architecture fits the portfolio’s content and GitHub Pages hosting, while reducing runtime dependencies and giving each project a directly accessible page.
 
-* Node.js (Latest LTS version recommended)
-* npm or bun
+| Area | Implementation |
+|---|---|
+| Rendering | Node.js templates and structured content |
+| Styling | Responsive CSS, monochrome palette, locally hosted Manrope |
+| Interactions | Project filters, mobile navigation, email copy feedback |
+| Hosting | Existing GitHub Pages `gh-pages` branch |
+| Accessibility | Semantic landmarks, skip link, focus indicators, native details, reduced-motion support |
+| Discoverability | Per-page metadata, canonical URLs, sitemap, social card, Person structured data |
+| Dependencies | No npm packages required to build or run |
 
-### Local Development
+## Local development
 
-1. **Clone the repository:**
+Requires **Node.js 22 or newer**. No dependency installation or credentials are needed.
+
 ```sh
 git clone https://github.com/mostafa-kermaninia/mostafa-kermaninia.github.io.git
-
-```
-
-
-2. **Install dependencies:**
-```sh
-npm install
-
-```
-
-
-3. **Start the development server:**
-```sh
+cd mostafa-kermaninia.github.io
 npm run dev
-
 ```
 
-
-
-## 📦 Deployment
-
-The project is configured for automated deployment to **GitHub Pages**. To deploy your own version:
+Open `http://127.0.0.1:8080`. After editing source, run `npm run build` again and refresh. The development server deliberately does not include a file watcher or SPA fallback.
 
 ```sh
-npm run deploy
-
+npm run check    # JavaScript syntax checks
+npm test         # Build, link/metadata/content checks, HTTP and interaction tests
+npm run build    # Generate dist/
+npm run preview  # Serve an existing build
 ```
 
-*The deployment script handles the build process and pushes the production-ready files to the `gh-pages` branch.*
+## Project structure
 
-## 📈 Features
+```text
+src/
+  content.mjs      Profile, projects, experience, teaching and capabilities
+  render.mjs       Shared layout and page templates
+  styles.css       Responsive design system and page layouts
+  site.js          Progressive interactions
+scripts/
+  build.mjs        Generates HTML routes, sitemap, robots and redirects
+  serve.mjs        Local static server with real 404 behavior
+  check.mjs        Syntax checks
+tests/
+  site.test.mjs    Publication and behavior checks
+public/
+  fonts/           Manrope font and its SIL Open Font License
+  images/          Portrait and social sharing image
+  assets/download/ CV and retained academic downloads
+docs/
+  CONTENT.md       Content editing and factual conventions
+  DESIGN.md        Visual direction and accessibility decisions
+  DEPLOYMENT.md   GitHub Pages publication and rollback
+```
 
-* **Responsive Design:** Fully optimized for mobile, tablet, and desktop.
-* **Academic Integration:** Detailed sections for Honors, Teaching Experience, and Research.
-* **Interactive UI:** Smooth scrolling, glassmorphism effects, and animated components.
-* **Dynamic Routing:** Client-side routing managed by React Router.
+## Update content
 
-## 📬 Contact
+Edit `src/content.mjs` for project descriptions, roles, links, dates, and contact information. Shared templates live in `src/render.mjs`. Replace `public/assets/download/CV.pdf` to update the primary CV; keep the same path so existing links remain useful.
 
-* **LinkedIn:** [mostafakermaninia](https://www.linkedin.com/in/mostafakermaninia)
-* **Email:** [mkermani1383@gmail.com](mailto:mkermani1383@gmail.com)
-* **GitHub:** [@mostafa-kermaninia](https://github.com/mostafa-kermaninia)
+Read [the content guide](docs/CONTENT.md) before adding metrics, employment titles, or research claims. [The design guide](docs/DESIGN.md) documents the visual system.
 
----
+## Publishing
 
-*Developed with precision by Mostafa Kermaninia.*
+The repository keeps **source on `main`** and **generated output on `gh-pages`**, preserving the existing domain and hosting configuration. The checks workflow validates source changes; it does not publish automatically.
 
+Build and test before publishing. Commit the source to `main`, then publish the matching `dist/` output to `gh-pages` using an authenticated Git account with repository access. Full commands and rollback instructions are in [DEPLOYMENT.md](docs/DEPLOYMENT.md).
+
+Direct project URLs resolve to real `index.html` files. The former `/case-study/grantia`, `/case-study/majara`, and `/case-study/momis` paths redirect to their new `/work/` equivalents. Unknown pages use a useful `404.html` instead of redirecting every error to the homepage.
+
+## Validation and limits
+
+The automated tests verify internal links and fragments, downloadable assets, metadata, core factual consistency, legacy redirects, HTTP routing, filtering, menu behavior, and clipboard success/failure feedback. Client-interaction tests use a minimal DOM fixture; they are not browser-rendering or accessibility certification.
+
+Layout, performance, and assistive-technology behavior should also be reviewed in real browsers when making visual changes. No unmeasured Lighthouse score or field-performance claim is made for this website.
+
+## Credits and rights
+
+- Visual direction inspired by [Wolfpixel UI/UX’s Personal Portfolio Website Design](https://dribbble.com/shots/24978876-Personal-Portfolio-Website-Design). Layout, copy, project artwork, and implementation are adapted specifically for this portfolio; the reference’s identity, photography, and assets are not included.
+- Manrope is locally hosted under the [SIL Open Font License](public/fonts/OFL-Manrope.txt). Upstream: [Google Fonts](https://github.com/google/fonts/tree/main/ofl/manrope).
+- Portrait, CV, personal content, and project descriptions belong to their respective owners. Industry-project descriptions do not imply company endorsement.
+- No blanket software or media license is granted by this repository. Contact the author about reuse.
+
+## Contact
+
+[mostafakermaninia@gmail.com](mailto:mostafakermaninia@gmail.com) · [GitHub](https://github.com/mostafa-kermaninia) · [LinkedIn](https://www.linkedin.com/in/mostafakermaninia/)
